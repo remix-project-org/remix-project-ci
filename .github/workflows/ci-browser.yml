@@ -73,7 +73,7 @@ jobs:
       - run: yarn run test:libs
 
   build:
-    runs-on: ubuntu-8-cores
+    runs-on: ubuntu-latest-8-cores
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -133,7 +133,7 @@ jobs:
 
   remix-ide-browser:
     needs: build
-    runs-on: ubuntu-8-cores
+    runs-on: ubuntu-latest-8-cores
     strategy:
       matrix:
         browser: [chrome, firefox]
