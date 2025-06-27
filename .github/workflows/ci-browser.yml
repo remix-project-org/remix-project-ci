@@ -6,9 +6,13 @@ on:
     branches:
       - "**"
 
+concurrency:
+  group: browser-test-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
-    runs-on: ubuntu-4-cores 
+    runs-on: ubuntu-8-cores 
     steps:
       - uses: actions/checkout@v4
 
@@ -31,7 +35,7 @@ jobs:
         run: node ./apps/remix-ide/ci/lint-targets.js
 
   remixlibs:
-    runs-on: ubuntu-4-cores
+    runs-on: ubuntu-8-cores
     steps:
       - uses: actions/checkout@v4
 
@@ -69,7 +73,7 @@ jobs:
       - run: yarn run test:libs
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-8-cores
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -129,7 +133,7 @@ jobs:
 
   remix-ide-browser:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-8-cores
     strategy:
       matrix:
         browser: [chrome, firefox]
