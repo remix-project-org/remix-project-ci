@@ -189,16 +189,6 @@ jobs:
           mkdir -p node_modules/hardhat
           wget https://unpkg.com/hardhat/console.sol -O node_modules/hardhat/console.sol
 
-      - name: Install browser (Chrome)
-        if: matrix.browser == 'chrome'
-        uses: browser-actions/setup-chrome@v1
-
-      - name: Install browser (Firefox)
-        if: matrix.browser == 'firefox'
-        uses: browser-actions/setup-firefox@v1
-
-      - run: yarn install_webdriver
-
       - run: ./apps/remix-ide/ci/browser_test.sh ${{ matrix.browser }} 10 ${{ matrix.job }}
 
       - name: Upload test results
