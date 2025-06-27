@@ -73,15 +73,12 @@ jobs:
       - run: yarn run test:libs
 
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest-m
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-
-      - name: Install Yarn
-        run: npm install -g yarn
 
       - name: Restore yarn cache
         uses: actions/cache@v4
