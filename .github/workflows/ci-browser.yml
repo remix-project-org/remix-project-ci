@@ -79,7 +79,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: sudo apt update && sudo apt install -y zstd
+
       - name: Restore yarn cache
         uses: actions/cache@v4
         with:
@@ -123,13 +123,13 @@ jobs:
       - name: Archive dist folder
         run: |
           mkdir -p persist
-          tar -cf - dist | zstd -1 -o persist/dist.tar.zst
+          tar -czf persist/dist.tar.gz dist
 
       - name: Persist dist archive
         uses: actions/upload-artifact@v4
         with:
           name: remix-dist
-          path: persist/dist.tar.zst
+          path: persist/dist.tar.gz
 
   remix-ide-browser:
     needs: build
@@ -194,12 +194,10 @@ jobs:
       - name: Extract dist archive
         run: |
           mkdir -p dist
-          zstd -d -c dist/dist.tar.zst | tar -x -C .
+          tar -xzf dist/dist.tar.gz -C .
 
       - name: List downloaded dist contents
         run: ls -laR dist
-
-      - run: sudo apt update && sudo apt install -y python3-pip zstd
 
       - run: |
           mkdir -p node_modules/hardhat
