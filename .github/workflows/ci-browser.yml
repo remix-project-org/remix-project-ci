@@ -73,7 +73,7 @@ jobs:
       - run: yarn run test:libs
 
   build:
-    runs-on: ubuntu-latest-m
+    runs-on: hetzner-ci-runner
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
