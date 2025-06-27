@@ -5,8 +5,8 @@ import axios from 'axios'
 import crypto from 'crypto'
 import init from '../helpers/init'
 
-const passphrase = process.env.account_passphrase
-const password = process.env.account_password
+const passphrase = process.env.ACCOUNT_PASSPHRASE
+const password = process.env.ACCOUNT_PASSWORD
 const extension_id = 'nkbihfbeogaeaoehlefnkodbefgpgknn'
 const extension_url = `chrome-extension://${extension_id}/home.html`
 const address = '0x3b3f6501A7fE68d22eFbc07d4424D4b9115C3038'

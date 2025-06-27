@@ -20,7 +20,7 @@ module.exports = {
        - retrieve the gist
        - switch to a file in the new gist
       */
-    console.log('token', process.env.gist_token)
+    console.log('token', process.env.GIST_TOKEN)
     const gistid = '17ac9315bc065a3d95cf8dc1b28d71f8'
     browser
       .refreshPage()
@@ -131,7 +131,7 @@ module.exports = {
       .waitForElementVisible('*[data-id="remixIdeIconPanel"]', 15000)
       .clickLaunchIcon('settings')
       .click('*[data-id="settingsTabGenerateContractMetadataLabel"]')
-      .setValue('[data-id="settingsTabGistAccessToken"]', process.env.gist_token)
+      .setValue('[data-id="settingsTabGistAccessToken"]', process.env.GIST_TOKEN)
       .click('[data-id="settingsTabSaveGistToken"]')
       .clickLaunchIcon('filePanel')
       .scrollAndClick('*[data-id="landingPageImportFromGistButton"]')

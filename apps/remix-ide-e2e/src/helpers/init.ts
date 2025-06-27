@@ -102,7 +102,7 @@ function initModules(browser: NightwatchBrowser, callback: VoidFunction) {
     .scrollAndClick('[data-id="verticalIconsKindfilePanel"]')
     .clickLaunchIcon('settings')
     .click('*[data-id="settingsTabGenerateContractMetadataLabel"]')
-    .setValue('[data-id="settingsTabGistAccessToken"]', process.env.gist_token)
+    .setValue('[data-id="settingsTabGistAccessToken"]', process.env.GIST_TOKEN)
     .click('[data-id="settingsTabSaveGistToken"]')
     .click('[data-id="settingsTabThemeLabelFlatly"]') // e2e tests were initially developed with Flatly. Some tests are failing with the default one (Dark), because the dark theme put uppercase everywhere.
     .perform(() => { callback() })

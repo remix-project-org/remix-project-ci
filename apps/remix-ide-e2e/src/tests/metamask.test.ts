@@ -3,8 +3,8 @@ import { NightwatchBrowser } from 'nightwatch'
 import init from '../helpers/init'
 import examples from '../examples/example-contracts'
 
-const passphrase = process.env.account_passphrase
-const password = process.env.account_password
+const passphrase = process.env.ACCOUNT_PASSPHRASE
+const password = process.env.ACCOUNT_PASSWORD
 
 let extension_url = ``
 
