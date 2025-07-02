@@ -27,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: prebuild-${{ runner.os }}
-          path: node-pty-build/prebuilds/
+          path: node-pty-build/node_modules/node-pty/
