@@ -7,7 +7,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [windowslatest]
+        os: [windowsserver]
         node: [20]
     runs-on: ${{ matrix.os }}
 
