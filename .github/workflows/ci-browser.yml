@@ -2,9 +2,6 @@ name: Remix IDE Browser CI
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - "**"
 
 concurrency:
   group: browser-test-${{ github.ref }}

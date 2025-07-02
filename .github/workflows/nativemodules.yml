@@ -27,7 +27,7 @@ jobs:
       - name: Build prebuild
         run: |
           cd node-pty-build
-          npx prebuild -r electron -t 30.5.1 --strip
+          npx prebuild -r electron -t 26 --strip
       - name: Upload prebuild artifacts
         uses: actions/upload-artifact@v4
         with:
