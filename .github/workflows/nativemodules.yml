@@ -14,20 +14,15 @@ jobs:
     steps:
       - name: Create working directory
         run: mkdir node-pty-build
-      - name: Change directory
-        run: cd node-pty-build
       - name: Initialize clean package.json
-        run: |
-          cd node-pty-build
-          npm init -y
+        working-directory: node-pty-build
+        run: npm init -y
       - name: Install node-pty
-        run: |
-          cd node-pty-build
-          yarn add node-pty
+        working-directory: node-pty-build
+        run: yarn add node-pty
       - name: Build prebuild
-        run: |
-          cd node-pty-build
-          npx prebuild -r electron -t 29.0.0 --strip
+        working-directory: node-pty-build
+        run: npx prebuild -r electron -t 29.0.0 --strip
       - name: Upload prebuild artifacts
         uses: actions/upload-artifact@v4
         with:
